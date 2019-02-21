@@ -1,0 +1,35 @@
+{
+  "name": "react-native-crypto-tools",
+  "title": "React Native Crypto Tools",
+  "version": "1.0.0",
+  "description": "C++ Djinni bindings to cryptographic libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aetheras-io/react-native-crypto-tools.git",
+    "baseUrl": "https://github.com/aetheras-io/react-native-crypto-tools"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Denis Tsai",
+    "email": "denistsai@aetheras.io"
+  },
+  "license": "Apache-2.0",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "16.2.0",
+    "react-native": "^0.52.0",
+    "react-native-windows": "0.52.0"
+  },
+  "devDependencies": {
+    "react": "16.2.0",
+    "react-native": "^0.52.0",
+    "react-native-windows": "0.52.0"
+  }
+}

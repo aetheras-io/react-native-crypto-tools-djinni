@@ -1,0 +1,6 @@
+ErrorCode = enum {
+    # Crypto
+    priv_key_invalid_format;
+    pub_key_invalid;
+    sign_failed;
+}

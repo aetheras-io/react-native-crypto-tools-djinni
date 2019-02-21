@@ -1,0 +1,13 @@
+@import "idl/hello.djinni"
+# @import "idl/crypto/secp256k1.djinni"
+# @import "idl/example.djinni"
+# @import "idl/errors.djinni"
+
+CryptoCore = interface +c {
+    # Gets the version of the library as a human readable string.
+    # @return The version of the library (e.g. '1.0.1')
+    static getStringVersion(): string;
+    # Get the integer version of the Library
+    # @return The integer version of the library
+    static getIntVersion(): i32;
+}
