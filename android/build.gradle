@@ -10,6 +10,13 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
@@ -31,6 +38,15 @@ android {
     targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
     versionCode 1
     versionName "1.0"
+    externalNativeBuild {
+        cmake{
+            cppFlags "-std=c++11 -frtti -fexceptions"
+            arguments "-DTARGET_JNI=ON"
+        }
+        clean {
+        delete ".externalNativeBuild"
+        }
+    }
   }
   lintOptions {
     abortOnError false
@@ -40,8 +56,8 @@ android {
     // Encapsulates your CMake build configurations.
     cmake {
       // Provides a relative path to your CMake build script.
-      path "CMakeLists.txt"
-    }
+      path "../CMakeLists.txt"
+      }
   }
 }
 
