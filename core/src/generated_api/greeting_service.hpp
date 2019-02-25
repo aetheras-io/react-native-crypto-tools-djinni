@@ -8,29 +8,19 @@
 #include <string>
 #include <vector>
 
-namespace crypto
-{
-namespace core
-{
-namespace api
-{
+namespace crypto { namespace core { namespace api {
 
-class GreetingDisplay;
-
-class GreetingService
-{
+class GreetingService {
 public:
     virtual ~GreetingService() {}
 
     /** Generating greetings is a lot of work */
     static constexpr int64_t COOLDOWN_MS = 4000;
 
-    static std::shared_ptr<GreetingService> create_service(const std::shared_ptr<GreetingDisplay>& display);
+    static std::shared_ptr<GreetingService> create_service();
 
     /** Call this in bg thread */
-    virtual void greet(const std::vector<std::string>& who) = 0;
+    virtual std::string greet(const std::vector<std::string> & who) = 0;
 };
 
-} // namespace api
-} // namespace core
-} // namespace crypto
+} } }  // namespace crypto::core::api

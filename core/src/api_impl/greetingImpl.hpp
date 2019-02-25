@@ -4,15 +4,11 @@
 #include <memory>
 #include <string>
 
-namespace crypto { namespace core { namespace api {
+using namespace crypto::core::api;
 
 class GreetingServiceImpl : public GreetingService {
   public:
-    GreetingServiceImpl(const std::shared_ptr<GreetingDisplay> &display);
+    GreetingServiceImpl();
 
-    virtual void greet(const std::vector<std::string> &who) override;
-
-  private:
-    std::shared_ptr<GreetingDisplay> m_display;
+    virtual std::string greet(const std::vector<std::string>& who) override;
 };
-}}} // namespace crypto::core::api

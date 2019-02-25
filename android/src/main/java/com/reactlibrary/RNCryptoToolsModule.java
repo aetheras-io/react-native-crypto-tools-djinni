@@ -36,6 +36,6 @@ public class RNCryptoToolsModule extends ReactContextBaseJavaModule {
         Log.i("RNCryptoToolsModule", "Argument:" + stringArgument);
         ArrayList<String> list = new ArrayList<String>(Arrays.asList(stringArgument.split(",")));
         Log.i("RNCryptoToolsModule-R",greetingService.greet(list));
-        callback.invoke(greetingService.greet(list));
+        //callback.invoke(greetingService.greet(list));
     }
 }

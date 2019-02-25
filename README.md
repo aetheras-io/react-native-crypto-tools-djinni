@@ -1,10 +1,16 @@
 # Project Structure
 
+- Java8 is required for deps/djinni
+- Cmake 3.2.0+ and clang/gcc are required for C/C++
 - Initial structure created with frostney/react-native-create-library (recommended officially by facebook's documentation)
 - C++ Libraries and their Shims located in "./core"
 - Djinni used to create boilerplate obj-C and java/jni bindings
 - Build steps configured using CMake (CMakeLists.txt)
 - Native build tools to compile the binaries to specific platforms
+
+# Makefile Magic
+
+- Djinni generation, cleanup and movement of generated files to correct locations
 
 # Setup Steps Taken (Android)
 
@@ -19,8 +25,7 @@ This section describes the necessary items that were modified to create the andr
 - Added "externalNativeBuild" block in "./android/build.gradle" to hook up the cmake pipline to the gradle pipline.  This uses gradle settings for CMake and also the NDK to do the actual compilation, which guarantees the correct build time settings for Android
 
 
-
 ## C++
 
 - bitcoin-core/secp256k1 requires a prebuild to generate a special binary header file https://github.com/bitcoin-core/secp256k1/issues/394
-- bitcoin-core/secp256k1 needs to be build with "./configure --disable-shared --disable-tests --disable-coverage --disable-openssl-tests --disable-exhaustive-tests --disable-jni --with-bignum=no --with-field=64bit --with-scalar=64bit --with-asm=no"
+- bitcoin-core/secp256k1 needs to be built with "./configure --disable-shared --disable-tests --disable-coverage --disable-openssl-tests --disable-exhaustive-tests --disable-jni --with-bignum=no --with-field=64bit --with-scalar=64bit --with-asm=no"

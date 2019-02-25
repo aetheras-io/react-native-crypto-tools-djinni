@@ -1,7 +1,7 @@
 greeting_service = interface +c {
-    static create_service(display: greeting_display): greeting_service;
+    static create_service(): greeting_service;
     # Call this in bg thread
-    greet(who: list<string>);
+    greet(who: list<string>): string;
     # Generating greetings is a lot of work
     const cooldown_ms: i64 = 4000;
 }

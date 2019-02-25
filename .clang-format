@@ -3,3 +3,9 @@ IndentWidth: 4
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 CompactNamespaces: true
+FixNamespaceComments: true
+NamespaceIndentation: All
+PointerAlignment: Left
+AlignConsecutiveAssignments: true
+AlignAfterOpenBracket: Align
+SpacesBeforeTrailingComments: 2
