@@ -12,10 +12,6 @@ import com.facebook.react.bridge.Callback;
 import io.aetheras.djinni.GreetingService;
 
 public class RNCryptoToolsModule extends ReactContextBaseJavaModule {
-    static {
-        System.loadLibrary("core-native");
-    }
-
     private final ReactApplicationContext reactContext;
     private final GreetingService greetingService;
 

@@ -12,7 +12,8 @@ DJINNI_FILE := ${ROOT_DIR}/core/idl/greeting.djinni
 CPP_NAMESPACE := crypto::core::api
 CPP_OUT := ${ROOT_DIR}/core/src/generated_api
 OBJC_PREFIX := AIO
-OBJC_OUT := ${ROOT_DIR}/ios
+OBJC_OUT := ${ROOT_DIR}/ios/generated_objc
+OBJCPP_OUT := ${ROOT_DIR}/ios/generated_objcpp
 JAVA_PACKAGE := io.aetheras.djinni
 JAVA_DIR := $(shell echo ${JAVA_PACKAGE} | tr . /)
 JAVA_OUT := ${ROOT_DIR}/android/src/main/java/${JAVA_DIR}
@@ -42,8 +43,8 @@ djinni:
 	--ident-jni-class "NativeCryptoTools" \
 	--ident-jni-file "NativeCryptoTools" \
 	--objc-out "${OBJC_OUT}" \
+	--objcpp-out "${OBJCPP_OUT}" \
 	--objc-type-prefix "${OBJC_PREFIX}" \
-	--objcpp-out "${OBJC_OUT}" \
 	--idl "${DJINNI_FILE}"
 	@echo "copying support-lib files to ${JNI_OUT}"
 	cp ./deps/djinni/support-lib/jni/* ${JNI_OUT}/jni
@@ -56,7 +57,7 @@ clean: clean-android clean-djinni
 	rm -rf ${OUTPUT_DIR}
 
 clean-djinni:
-	rm -rf ${CPP_OUT} ${JNI_OUT} ${ROOT_DIR}/android/src/main/java/io ${OBJC_OUT}/${OBJC_PREFIX}* 
+	rm -rf ${CPP_OUT} ${JNI_OUT} ${ROOT_DIR}/android/src/main/java/io ${OBJC_OUT} ${OBJCPP_OUT}
 
 clean-android:
 	# Clean gradle, remove built native binaries and remove djinni jni bridge
