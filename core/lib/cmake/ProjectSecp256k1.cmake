@@ -30,10 +30,10 @@ set(SECP256K1_INCLUDE_DIR "${prefix}/include")
 ExternalProject_Add(
         secp256k1
         PREFIX "${prefix}"
-        DOWNLOAD_NAME secp256k1-ac8ccf29.tar.gz
+        DOWNLOAD_NAME secp256k1-aa15154a.tar.gz
         DOWNLOAD_NO_PROGRESS 1
-        URL https://github.com/chfast/secp256k1/archive/ac8ccf29b8c6b2b793bc734661ce43d1f952977a.tar.gz
-        URL_HASH SHA256=02f8f05c9e9d2badc91be8e229a07ad5e4984c1e77193d6b00e549df129e7c3a
+        URL https://github.com/bitcoin-core/secp256k1/archive/aa15154a4882a40227a238edef830b85a4942d4f.tar.gz
+        URL_HASH SHA256=2b812cfe56a8fe3ffe28964bab656940477b89ac5adbbddef1756389408a0ea5
         PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${CMAKE_CURRENT_LIST_DIR}/../secp256k1/CMakeLists.txt <SOURCE_DIR>
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>

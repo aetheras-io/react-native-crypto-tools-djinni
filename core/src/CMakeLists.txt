@@ -7,6 +7,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 list(APPEND core-sources
         api_impl/greetingImpl.hpp
         api_impl/greetingImpl.cpp
+        api_impl/Secp256k1Impl.cpp
+        api_impl/Secp256k1Impl.hpp
         )
 
 set(ANDROID_CPP_FEATURES exceptions)
@@ -30,7 +32,18 @@ if (TARGET_JNI)
         find_package(JNI REQUIRED)
     endif()
     list(APPEND core-sources ${core-jni-sources})
+    add_definitions(-DTARGET_JNI=1)
 endif ()
+
+add_library(core-interface INTERFACE)
+link_directories(${CMAKE_BINARY_DIR}/lib)
+file(GLOB_RECURSE SRC_FILES *.cpp)
+file(GLOB_RECURSE HEADERS_FILES *.h *.hpp)
+
+#Secp256k1
+target_link_libraries(core-interface INTERFACE "${CMAKE_SOURCE_DIR}/core/lib/secp256k1/lib/${CMAKE_STATIC_LIBRARY_PREFIX}secp256k1${CMAKE_STATIC_LIBRARY_SUFFIX}")
+link_directories("${CMAKE_SOURCE_DIR}/core/lib/secp256k1/lib")
+add_dependencies(core-interface INTERFACE secp256k1)
 
 function (ListToString result delim)
     list(GET ARGV 2 temp)
@@ -43,8 +56,12 @@ function (ListToString result delim)
 endfunction(ListToString)
 
 #set(LIB_BUILD_TYPE SHARED)
-ListToSTring(str "\n" ${core-sources})
-message(STATUS ${str})
+ListToSTring(str1 "\n" ${SRC_FILES})
+ListToSTring(str2 "\n" ${SRC_FILES})
+message(STATUS "SRC_FILES\n" ${str1})
+message(STATUS "HEADERS_FILES\n" ${str2})
+
+
 add_library(core-native SHARED ${core-sources})
 
 target_include_directories(
@@ -53,4 +70,7 @@ target_include_directories(
     generated_api
     generated_jni
     generated_jni/jni
+    ../lib/secp256k1
     )
+
+# target_include_directories(core-native INTERFACE )

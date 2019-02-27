@@ -1,5 +1,5 @@
-@import "idl/hello.djinni"
-# @import "idl/crypto/secp256k1.djinni"
+@import "idl/greeting.djinni"
+@import "idl/crypto/secp256k1.djinni"
 # @import "idl/example.djinni"
 # @import "idl/errors.djinni"
 

@@ -1,8 +1,12 @@
 # OSX
 .DS_Store
 
-# agora
+# aetheras
 dist/
+core/lib/secp256k1/include/
+core/lib/secp256k1/lib/
+core/lib/secp256k1/src/
+core/lib/secp256k1/tmp/
 
 # node.js
 #
