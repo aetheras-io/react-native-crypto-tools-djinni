@@ -28,7 +28,7 @@
  * SOFTWARE.
  *
  */
-#include "hex.h"
+#include "hex.hpp"
 
 namespace crypto { namespace core { namespace hex {
 

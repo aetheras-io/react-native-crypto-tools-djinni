@@ -1,6 +1,6 @@
 #pragma once
 
-#include "greeting_service.hpp"
+#include "generated_api/greeting_service.hpp"
 #include <memory>
 #include <string>
 

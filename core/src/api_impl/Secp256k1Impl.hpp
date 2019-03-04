@@ -1,4 +1,4 @@
-#include <Secp256k1.hpp>
+#include <generated_api/Secp256k1.hpp>
 #include <include/secp256k1.h>
 
 namespace crypto { namespace core {
